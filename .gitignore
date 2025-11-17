@@ -1,0 +1,48 @@
+# Universal Project Automation - .gitignore
+
+# n8n runtime
+n8n/.n8n/
+n8n/logs/
+n8n/*.log
+
+# Environment files (SECRETS)
+.env
+.env.local
+.env.*.local
+n8n/.env
+
+# Reports (too large, regenerate locally)
+reports/
+
+# Node modules
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+
+# Logs
+*.log
+npm-debug.log*
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Credentials (NEVER commit!)
+credentials.json
+credentials-template.txt
+*-credentials.json
+
+# Backup files
+*.backup
+*.bak
+*~

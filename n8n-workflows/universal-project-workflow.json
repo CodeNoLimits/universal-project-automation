@@ -1,0 +1,192 @@
+{
+  "name": "Universal Project Automation - Fronde de David",
+  "nodes": [
+    {
+      "parameters": {
+        "mode": "webhook",
+        "httpMethod": "POST",
+        "path": "universal-automation",
+        "responseMode": "onReceived",
+        "authentication": "headerAuth"
+      },
+      "id": "webhook-trigger",
+      "name": "Webhook (WhatsApp/Telegram Trigger)",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [250, 300],
+      "webhookId": "universal-automation-webhook"
+    },
+    {
+      "parameters": {
+        "mode": "parseMessage",
+        "jsonOutput": true
+      },
+      "id": "parse-message",
+      "name": "Parse WhatsApp/Telegram Message",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [450, 300],
+      "code": "const body = $input.item.json.Body || $input.item.json.message?.text;\nconst from = $input.item.json.From || $input.item.json.message?.from?.id;\n\n// Parse command from message\nconst commands = {\n  'deploy': { action: 'deploy', project: null },\n  'analyze': { action: 'competitor_analysis', project: null },\n  'optimize': { action: 'image_optimization', project: null },\n  'validate': { action: 'validation', project: null },\n  'screenshot': { action: 'screenshot', project: null },\n  'benchmark': { action: 'benchmark', project: null },\n  'all': { action: 'full_automation', project: null }\n};\n\nlet parsed = { action: 'unknown', project: null, raw: body };\n\nfor (const [cmd, config] of Object.entries(commands)) {\n  if (body.toLowerCase().includes(cmd)) {\n    parsed = { ...config, raw: body };\n    break;\n  }\n}\n\n// Extract project name if mentioned\nconst projectKeywords = {\n  'barukh': 'barukh-sagit-jewelry',\n  'sagit': 'barukh-sagit-jewelry',\n  'bijoux': 'barukh-sagit-jewelry',\n  'esther': 'esther-ifra-breslev',\n  'ifra': 'esther-ifra-breslev',\n  'breslev': 'esther-ifra-breslev',\n  'keren': 'keren-rabbi-israel',\n  'dreamnova': 'dreamnova-v2',\n  'document': 'dreamnova-v2',\n  'rabbi': 'rabbi-nachman-rag',\n  'nachman': 'rabbi-nachman-rag',\n  'solar': 'primapac-kavkom',\n  'primapac': 'primapac-kavkom',\n  'terramind': 'terramind-betterhelp-competitor',\n  'therapy': 'terramind-betterhelp-competitor',\n  'pizza': 'pizza-plus-social-automation'\n};\n\nfor (const [keyword, projectId] of Object.entries(projectKeywords)) {\n  if (body.toLowerCase().includes(keyword)) {\n    parsed.project = projectId;\n    break;\n  }\n}\n\nreturn { json: parsed };"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{$json.action}}",
+              "operation": "equals",
+              "value2": "competitor_analysis"
+            }
+          ]
+        }
+      },
+      "id": "switch-action",
+      "name": "Route by Action",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 1,
+      "position": [650, 300]
+    },
+    {
+      "parameters": {
+        "url": "https://api.competitor-analysis-service.com/analyze",
+        "method": "POST",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "project_id",
+              "value": "={{$json.project}}"
+            },
+            {
+              "name": "competitors",
+              "value": "={{$json.competitors}}"
+            }
+          ]
+        }
+      },
+      "id": "competitor-analysis",
+      "name": "Run Competitor Analysis",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [850, 200]
+    },
+    {
+      "parameters": {
+        "command": "cd /Users/codenolimits-dreamai-nanach/.claude/templates/universal-project-automation && bash scripts/competitor-analysis-auto.sh {{$json.project}}"
+      },
+      "id": "execute-competitor-script",
+      "name": "Execute Competitor Analysis Script",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [1050, 200]
+    },
+    {
+      "parameters": {
+        "command": "cd /Users/codenolimits-dreamai-nanach/.claude/templates/universal-project-automation && bash scripts/image-optimization-auto.sh {{$json.project}}"
+      },
+      "id": "execute-image-optimization",
+      "name": "Execute Image Optimization",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [1050, 300]
+    },
+    {
+      "parameters": {
+        "command": "cd /Users/codenolimits-dreamai-nanach/.claude/templates/universal-project-automation && bash scripts/validation-4layers.sh {{$json.project}}"
+      },
+      "id": "execute-validation",
+      "name": "Execute 4+4 Validation",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [1050, 400]
+    },
+    {
+      "parameters": {
+        "command": "cd /Users/codenolimits-dreamai-nanach/.claude/templates/universal-project-automation && bash scripts/deploy-auto.sh {{$json.project}}"
+      },
+      "id": "execute-deploy",
+      "name": "Execute Deployment",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [1050, 500]
+    },
+    {
+      "parameters": {
+        "command": "cd /Users/codenolimits-dreamai-nanach/.claude/templates/universal-project-automation && bash scripts/full-automation.sh {{$json.project}}"
+      },
+      "id": "execute-full-automation",
+      "name": "Execute Full Automation (All Steps)",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [1050, 600]
+    },
+    {
+      "parameters": {
+        "accountSid": "={{$credentials.twilioAccountSid}}",
+        "authToken": "={{$credentials.twilioAuthToken}}",
+        "fromPhoneNumber": "={{$credentials.twilioWhatsAppNumber}}",
+        "toPhoneNumber": "={{$json.from}}",
+        "message": "✅ Automation completed successfully for {{$json.project}}!\n\nAction: {{$json.action}}\nResults: Check dashboard or GitHub notifications.\n\n🚀 Powered by Fronde de David System"
+      },
+      "id": "send-whatsapp-response",
+      "name": "Send WhatsApp Response",
+      "type": "n8n-nodes-base.twilio",
+      "typeVersion": 1,
+      "position": [1250, 400]
+    },
+    {
+      "parameters": {
+        "chatId": "={{$json.from}}",
+        "text": "✅ Automation completed successfully for {{$json.project}}!\n\nAction: {{$json.action}}\nResults: Check dashboard or GitHub notifications.\n\n🚀 Powered by Fronde de David System"
+      },
+      "id": "send-telegram-response",
+      "name": "Send Telegram Response (Fallback)",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1,
+      "position": [1250, 500]
+    }
+  ],
+  "connections": {
+    "webhook-trigger": {
+      "main": [[{ "node": "parse-message", "type": "main", "index": 0 }]]
+    },
+    "parse-message": {
+      "main": [[{ "node": "switch-action", "type": "main", "index": 0 }]]
+    },
+    "switch-action": {
+      "main": [
+        [{ "node": "execute-competitor-script", "type": "main", "index": 0 }],
+        [{ "node": "execute-image-optimization", "type": "main", "index": 0 }],
+        [{ "node": "execute-validation", "type": "main", "index": 0 }],
+        [{ "node": "execute-deploy", "type": "main", "index": 0 }],
+        [{ "node": "execute-full-automation", "type": "main", "index": 0 }]
+      ]
+    },
+    "execute-competitor-script": {
+      "main": [[{ "node": "send-whatsapp-response", "type": "main", "index": 0 }]]
+    },
+    "execute-image-optimization": {
+      "main": [[{ "node": "send-whatsapp-response", "type": "main", "index": 0 }]]
+    },
+    "execute-validation": {
+      "main": [[{ "node": "send-whatsapp-response", "type": "main", "index": 0 }]]
+    },
+    "execute-deploy": {
+      "main": [[{ "node": "send-whatsapp-response", "type": "main", "index": 0 }]]
+    },
+    "execute-full-automation": {
+      "main": [[{ "node": "send-whatsapp-response", "type": "main", "index": 0 }]]
+    },
+    "send-whatsapp-response": {
+      "main": [[{ "node": "send-telegram-response", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "timezone": "Europe/Paris"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-11-17T16:00:00.000Z",
+  "versionId": "1"
+}

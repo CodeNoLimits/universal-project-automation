@@ -1,0 +1,421 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2025-11-17",
+  "projects": [
+    {
+      "id": "barukh-sagit-jewelry",
+      "name": "Barukh Sagit Jewelry",
+      "path": "/Users/codenolimits-dreamai-nanach/Desktop/BAROUKH/MANUS SITE/barukh-sagit-jewelry",
+      "domain": "jewelry",
+      "competitors": [
+        {
+          "name": "Tiffany & Co.",
+          "url": "https://www.tiffany.com",
+          "benchmark_scores": {
+            "design": 98,
+            "functionality": 96,
+            "price": 70
+          }
+        },
+        {
+          "name": "Cartier",
+          "url": "https://www.cartier.com",
+          "benchmark_scores": {
+            "design": 99,
+            "functionality": 95,
+            "price": 65
+          }
+        },
+        {
+          "name": "Mejuri",
+          "url": "https://mejuri.com",
+          "benchmark_scores": {
+            "design": 94,
+            "functionality": 97,
+            "price": 85
+          }
+        }
+      ],
+      "target_pillars": {
+        "cost": "20% cheaper than Cartier/Tiffany",
+        "functionality": "Match or exceed Mejuri features",
+        "design": "Level Tiffany (98+/100)"
+      },
+      "stack": {
+        "frontend": "React 19 + Vite + Tailwind",
+        "backend": "Express + tRPC",
+        "database": "MySQL + Drizzle ORM",
+        "deployment": "Vercel/Netlify"
+      },
+      "status": "urgent",
+      "lighthouse_target": {
+        "performance": 95,
+        "accessibility": 98,
+        "best_practices": 98,
+        "seo": 98
+      }
+    },
+    {
+      "id": "esther-ifra-breslev",
+      "name": "Esther Ifrah - Breslev Site",
+      "path": "/Users/codenolimits-dreamai-nanach/Desktop/ESTHER IFRA CURSOR FINAL/site manus/breslev",
+      "domain": "religious-content",
+      "competitors": [
+        {
+          "name": "Sefaria",
+          "url": "https://www.sefaria.org",
+          "benchmark_scores": {
+            "design": 92,
+            "functionality": 98,
+            "price": 100
+          }
+        },
+        {
+          "name": "Chabad.org",
+          "url": "https://www.chabad.org",
+          "benchmark_scores": {
+            "design": 88,
+            "functionality": 94,
+            "price": 100
+          }
+        }
+      ],
+      "target_pillars": {
+        "cost": "Free (match Sefaria)",
+        "functionality": "Exceed Sefaria RAG + search",
+        "design": "Modern (95+/100)"
+      },
+      "stack": {
+        "frontend": "React 19 + Vite + Tailwind",
+        "backend": "Express + tRPC",
+        "database": "MySQL + Drizzle ORM",
+        "deployment": "Vercel/Netlify"
+      },
+      "status": "urgent",
+      "lighthouse_target": {
+        "performance": 95,
+        "accessibility": 98,
+        "best_practices": 98,
+        "seo": 98
+      }
+    },
+    {
+      "id": "keren-rabbi-israel",
+      "name": "Keren Rabbi Israël",
+      "path": "/Users/codenolimits-dreamai-nanach/Desktop/📁 Projets/Keren/site keren final/HaeshSheliClone",
+      "domain": "nonprofit-fundraising",
+      "competitors": [
+        {
+          "name": "JGive",
+          "url": "https://www.jgive.com",
+          "benchmark_scores": {
+            "design": 90,
+            "functionality": 96,
+            "price": 95
+          }
+        },
+        {
+          "name": "Charidy",
+          "url": "https://charidy.com",
+          "benchmark_scores": {
+            "design": 93,
+            "functionality": 98,
+            "price": 92
+          }
+        }
+      ],
+      "target_pillars": {
+        "cost": "Lower fees than Charidy/JGive",
+        "functionality": "Match Charidy crowdfunding features",
+        "design": "Professional modern (93+/100)"
+      },
+      "stack": {
+        "frontend": "React 18 + Vite + Tailwind",
+        "backend": "Express + Stripe",
+        "database": "Neon PostgreSQL + Drizzle ORM",
+        "deployment": "Vercel"
+      },
+      "status": "urgent",
+      "lighthouse_target": {
+        "performance": 93,
+        "accessibility": 97,
+        "best_practices": 97,
+        "seo": 97
+      }
+    },
+    {
+      "id": "dreamnova-v2",
+      "name": "DreamNova V2 - Document Digitization",
+      "path": "/Users/codenolimits-dreamai-nanach/Desktop/📁 Projets/Dream Nova/PROJETS DREAMAI/DreamAI-Unified-Dashboard",
+      "domain": "document-digitization-saas",
+      "competitors": [
+        {
+          "name": "DocuWare",
+          "url": "https://www.docuware.com",
+          "benchmark_scores": {
+            "design": 88,
+            "functionality": 95,
+            "price": 70
+          }
+        },
+        {
+          "name": "M-Files",
+          "url": "https://www.m-files.com",
+          "benchmark_scores": {
+            "design": 90,
+            "functionality": 97,
+            "price": 72
+          }
+        },
+        {
+          "name": "Box",
+          "url": "https://www.box.com",
+          "benchmark_scores": {
+            "design": 94,
+            "functionality": 96,
+            "price": 80
+          }
+        }
+      ],
+      "target_pillars": {
+        "cost": "50% cheaper than DocuWare/M-Files",
+        "functionality": "Match Box + AI features",
+        "design": "Modern SaaS (94+/100)"
+      },
+      "stack": {
+        "frontend": "React 19 + Vite + Google GenAI",
+        "backend": "Node.js + Express",
+        "database": "PostgreSQL",
+        "deployment": "Vercel/Google Cloud"
+      },
+      "status": "active",
+      "lighthouse_target": {
+        "performance": 94,
+        "accessibility": 97,
+        "best_practices": 97,
+        "seo": 96
+      }
+    },
+    {
+      "id": "rabbi-nachman-rag",
+      "name": "Rabbi Nachman RAG System",
+      "path": "/Users/codenolimits-dreamai-nanach/Desktop/📖 Torah & Breslov/PROJETS RABBI NACHMAN/rabbi-nachman-cursor",
+      "domain": "rag-knowledge-base",
+      "competitors": [
+        {
+          "name": "Sefaria API",
+          "url": "https://developers.sefaria.org",
+          "benchmark_scores": {
+            "design": 85,
+            "functionality": 98,
+            "price": 100
+          }
+        }
+      ],
+      "target_pillars": {
+        "cost": "Free/Open-source",
+        "functionality": "Exceed Sefaria with AI RAG",
+        "design": "Clean documentation (90+/100)"
+      },
+      "stack": {
+        "frontend": "Express + REST API",
+        "backend": "Node.js + MongoDB",
+        "database": "MongoDB + Vector DB",
+        "deployment": "Railway/Render"
+      },
+      "status": "active",
+      "lighthouse_target": {
+        "performance": 92,
+        "accessibility": 95,
+        "best_practices": 96,
+        "seo": 94
+      }
+    },
+    {
+      "id": "primapac-kavkom",
+      "name": "Primapac Solar Panels Optimization",
+      "path": "/Users/codenolimits-dreamai-nanach/Desktop/📁 Projets/KavKom/PROPSPECTION KAVKOM/primapac-optimized",
+      "domain": "solar-energy-platform",
+      "competitors": [
+        {
+          "name": "Aurora Solar",
+          "url": "https://aurorasolar.com",
+          "benchmark_scores": {
+            "design": 95,
+            "functionality": 98,
+            "price": 75
+          }
+        },
+        {
+          "name": "SolarEdge",
+          "url": "https://solaredge.com",
+          "benchmark_scores": {
+            "design": 92,
+            "functionality": 96,
+            "price": 80
+          }
+        }
+      ],
+      "target_pillars": {
+        "cost": "30% cheaper than Aurora Solar",
+        "functionality": "Match SolarEdge monitoring features",
+        "design": "Professional B2B (94+/100)"
+      },
+      "stack": {
+        "frontend": "React + Vite + Tailwind",
+        "backend": "Express",
+        "database": "PostgreSQL",
+        "deployment": "Vercel"
+      },
+      "status": "active",
+      "lighthouse_target": {
+        "performance": 94,
+        "accessibility": 96,
+        "best_practices": 97,
+        "seo": 96
+      }
+    },
+    {
+      "id": "terramind-betterhelp-competitor",
+      "name": "TerraMind - Online Therapy Platform",
+      "path": null,
+      "domain": "online-therapy",
+      "competitors": [
+        {
+          "name": "BetterHelp",
+          "url": "https://www.betterhelp.com",
+          "benchmark_scores": {
+            "design": 94,
+            "functionality": 97,
+            "price": 70
+          }
+        },
+        {
+          "name": "Talkspace",
+          "url": "https://www.talkspace.com",
+          "benchmark_scores": {
+            "design": 92,
+            "functionality": 96,
+            "price": 75
+          }
+        },
+        {
+          "name": "7Cups",
+          "url": "https://www.7cups.com",
+          "benchmark_scores": {
+            "design": 88,
+            "functionality": 90,
+            "price": 95
+          }
+        }
+      ],
+      "target_pillars": {
+        "cost": "20% cheaper than BetterHelp ($52/week vs $65/week)",
+        "functionality": "Match Talkspace + insurance integration",
+        "design": "Modern health-tech (95+/100)"
+      },
+      "stack": {
+        "frontend": "Next.js 14 + Tailwind + Radix UI",
+        "backend": "Next.js API Routes + tRPC",
+        "database": "Supabase PostgreSQL",
+        "deployment": "Vercel",
+        "payment": "Stripe + insurance APIs"
+      },
+      "status": "planned",
+      "lighthouse_target": {
+        "performance": 95,
+        "accessibility": 98,
+        "best_practices": 98,
+        "seo": 97
+      }
+    },
+    {
+      "id": "pizza-plus-social-automation",
+      "name": "Pizza Plus - Social Media Automation (Elimeler)",
+      "path": null,
+      "domain": "restaurant-social-media",
+      "competitors": [
+        {
+          "name": "Buffer",
+          "url": "https://buffer.com",
+          "benchmark_scores": {
+            "design": 93,
+            "functionality": 95,
+            "price": 85
+          }
+        },
+        {
+          "name": "Hootsuite",
+          "url": "https://hootsuite.com",
+          "benchmark_scores": {
+            "design": 90,
+            "functionality": 97,
+            "price": 80
+          }
+        }
+      ],
+      "target_pillars": {
+        "cost": "Free/custom solution (vs $15-99/mo)",
+        "functionality": "Match Buffer scheduling + AI content gen",
+        "design": "Simple dashboard (90+/100)"
+      },
+      "stack": {
+        "frontend": "React + Vite + Tailwind",
+        "backend": "n8n automation + Google AI",
+        "database": "PostgreSQL",
+        "deployment": "Vercel + self-hosted n8n"
+      },
+      "status": "planned",
+      "lighthouse_target": {
+        "performance": 92,
+        "accessibility": 95,
+        "best_practices": 96,
+        "seo": 94
+      }
+    },
+    {
+      "id": "jahenco",
+      "name": "Jahenco.com",
+      "path": null,
+      "domain": "unknown",
+      "competitors": [],
+      "target_pillars": {
+        "cost": "TBD",
+        "functionality": "TBD",
+        "design": "95+/100"
+      },
+      "stack": {},
+      "status": "active",
+      "lighthouse_target": {
+        "performance": 93,
+        "accessibility": 96,
+        "best_practices": 96,
+        "seo": 95
+      }
+    }
+  ],
+  "automation_workflows": {
+    "competitor_analysis": {
+      "frequency": "weekly",
+      "tools": ["Visualping", "SEMrush API", "Playwright screenshots"],
+      "outputs": ["benchmark_scores", "design_screenshots", "feature_comparison"]
+    },
+    "image_optimization": {
+      "frequency": "on_commit",
+      "tools": ["sharp", "imagemin", "cloudinary API"],
+      "outputs": ["optimized_images", "webp_variants", "responsive_srcsets"]
+    },
+    "design_validation": {
+      "frequency": "pre_deployment",
+      "tools": ["Lighthouse CI", "Percy", "Pa11y"],
+      "outputs": ["lighthouse_scores", "visual_diffs", "wcag_compliance"]
+    },
+    "n8n_triggers": {
+      "whatsapp": {
+        "provider": "Twilio",
+        "fallback": "Telegram",
+        "workflows": ["deploy_site", "run_competitor_analysis", "optimize_images", "run_validation"]
+      }
+    }
+  }
+}
