@@ -43,7 +43,7 @@ export default function Home() {
           <div className="bg-white p-6 rounded-xl shadow-lg border border-slate-200">
             <div className="text-4xl mb-4">✅</div>
             <h3 className="text-xl font-bold mb-2">Validation 4 Couches</h3>
-            <p className="text-slate-600">Lighthouse >90 + WCAG AA + Visual + Design System</p>
+            <p className="text-slate-600">Lighthouse &gt;90 + WCAG AA + Visual + Design System</p>
           </div>
         </div>
 
